@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: ml-pipeline
 spec:
+  type: LoadBalancer
+  loadBalancerSourceRanges:
+    - 81.82.223.183/32
   ports:
   - name: http
     port: 8888
