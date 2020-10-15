@@ -9,5 +9,5 @@ spec:
   commonName: "istio-ingressgateway-root-ca"
   isCA: true
   issuerRef:
-    name: kubeflow-self-signing-issuer
+    name: letsencrypt-prod
     kind: ClusterIssuer
