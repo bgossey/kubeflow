@@ -6,25 +6,12 @@ spec:
   selector:
     istio: $(gatewaySelector)
   servers:
-    - hosts:
-        - '*'
-      port:
-        name: http
+    - port:
         number: 80
+        name: http
         protocol: HTTP
-      # Upgrade HTTP to HTTPS
-      tls:
-        httpsRedirect: true
-    - hosts:
-        - '*'
-      port:
-        name: https
-        number: 443
-        protocol: HTTPS
-      tls:
-        mode: SIMPLE
-        privateKey: /etc/istio/ingressgateway-certs/tls.key
-        serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
+      hosts:
+        - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
