@@ -11,5 +11,5 @@ spec:
   isCA: true
   issuerRef:
     kind: ClusterIssuer
-    name: letsencrypt-prod
+    name: kubeflow-self-signing-issuer
   secretName: istio-ingressgateway-certs

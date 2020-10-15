@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: istio-system
 resources:
 - certificate.yaml
+- cluster-issuer.yaml
 
 configMapGenerator:
 - name: ingressgateway-self-signed-cert-parameters
