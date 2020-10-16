@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
 - kf-istio-resources.yaml
 - cluster-roles.yaml
-- cluster-rbac-config.yaml
 namespace: kubeflow
 configMapGenerator:
 - name: istio-parameters
