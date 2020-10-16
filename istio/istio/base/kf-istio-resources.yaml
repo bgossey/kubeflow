@@ -107,8 +107,5 @@ kind: ClusterRbacConfig
 metadata:
   name: default
 spec:
-  mode: $(clusterRbacConfig)
-  exclusion:
-    namespaces:
-    - istio-system # Accessing Istio services won't require an rbac policy.
+  mode: "OFF"
 
