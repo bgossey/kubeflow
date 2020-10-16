@@ -20,7 +20,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: add-user-everywhere
+  name: add-user-everywhere-anonymous
   namespace: anonymous
 spec:
   filters:
