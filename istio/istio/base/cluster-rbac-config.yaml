@@ -3,4 +3,4 @@ kind: ClusterRbacConfig
 metadata:
   name: default
 spec:
-  mode: "OFF"
+  mod554e: "OFF"
