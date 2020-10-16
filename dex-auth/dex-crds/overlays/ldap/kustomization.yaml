@@ -11,8 +11,7 @@ patchesStrategicMerge:
 configMapGenerator:
 - name: dex-parameters
   behavior: merge
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

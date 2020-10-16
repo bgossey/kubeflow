@@ -1,9 +1,3 @@
-# This overlay uses CertManager to provision a certificate for the
-# PodDefaults admission controller. This is preferred over the old
-# way of using "bootstrap" which was running a shell script to create
-# the certificate.
-# TODO(jlewi): We should eventually refactor the manifests to delete
-# bootstrap and use certmanager by default.
 bases:
 - ../../base
 
@@ -17,26 +11,19 @@ patchesStrategicMerge:
 configMapGenerator:
 - name: admission-webhook-parameters
   behavior: merge
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 
 vars:
-# These vars are used to substitute in the namespace, service name and
-# deployment name into the mutating WebHookConfiguration.
-# Since its a CR kustomize isn't aware of those fields and won't
-# transform them.
-# We need the var names to be relatively unique so that when we
-# compose with other applications they won't conflict.
-- name: podDefaultsIssuer
+- name: issuer
   objref:
     kind: ConfigMap
     name: admission-webhook-parameters
     apiVersion: v1
   fieldref:
     fieldpath: data.issuer
-- name: podDefaultsCertName
+- name: cert_name
   objref:
       kind: Certificate
       group: cert-manager.io

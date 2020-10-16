@@ -8,7 +8,6 @@ patchesStrategicMerge:
 configMapGenerator:
 - name: istio-parameters
   behavior: merge
-  envs:
-  - params.env
+  env: params.env
 configurations:
 - params.yaml

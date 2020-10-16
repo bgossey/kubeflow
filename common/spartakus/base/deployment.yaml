@@ -10,20 +10,12 @@ spec:
     metadata:
       labels:
         app: spartakus-volunteer
-      annotations:
-        sidecar.istio.io/inject: "false"
     spec:
       containers:
       - args:
         - volunteer
-        - --cluster-id=$(USAGE_ID)
+        - --cluster-id=$(usageId)
         - --database=https://stats-collector.kubeflow.org
         image: gcr.io/google_containers/spartakus-amd64:v1.1.0
         name: volunteer
-        env:
-        - name: USAGE_ID
-          valueFrom:
-            configMapKeyRef:
-              name: spartakus-config
-              key: usageId
       serviceAccountName: spartakus

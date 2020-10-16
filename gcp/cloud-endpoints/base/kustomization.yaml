@@ -1,6 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: kubeflow
 resources:
 - cluster-role-binding.yaml
 - cluster-role.yaml
@@ -18,8 +17,7 @@ images:
   newTag: 0.2.1
 configMapGenerator:
 - name: cloud-endpoints-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

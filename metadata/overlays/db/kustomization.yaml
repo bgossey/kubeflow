@@ -8,12 +8,10 @@ generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
 - name: metadata-db-parameters
-  envs:
-  - params.env
+  env: params.env
 secretGenerator:
 - name: metadata-db-secrets
-  envs:
-  - secrets.env
+  env: secrets.env
 bases:
 - ../../base
 resources:

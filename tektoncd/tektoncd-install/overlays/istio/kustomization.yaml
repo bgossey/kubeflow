@@ -6,8 +6,7 @@ resources:
 - virtual-service.yaml
 configMapGenerator:
 - name: tektoncd-install-istio-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

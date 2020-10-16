@@ -6,10 +6,11 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: cert-manager
-      app.kubernetes.io/instance: cert-manager
+      app.kubernetes.io/instance: cert-manager-v1.0.0
       app.kubernetes.io/managed-by: kfctl
       app.kubernetes.io/component: cert-manager
-      app.kubernetes.io/part-of: kubeflow      
+      app.kubernetes.io/part-of: kubeflow
+      app.kubernetes.io/version: v1.0.0
   componentKinds:
   - group: rbac
     kind: ClusterRole
@@ -32,4 +33,3 @@ spec:
     links:
     - description: About
       url: "https://github.com/jetstack/cert-manager"
-  addOwnerRef: true

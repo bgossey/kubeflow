@@ -9,8 +9,7 @@ resources:
 - persistent-volume-claim.yaml
 configMapGenerator:
 - name: pipeline-minio-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

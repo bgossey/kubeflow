@@ -25,8 +25,7 @@ images:
   newTag: v0.11.0
 configMapGenerator:
 - name: cert-manager-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

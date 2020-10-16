@@ -7,8 +7,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: sparkoperator
-      app.kubernetes.io/version: v1beta2-1.1.0-2.4.5
-      kustomize.component: spark-operator
+      app.kubernetes.io/version: v1beta2-1.0.0-2.4.4
   strategy:
     type: Recreate
   template:
@@ -17,11 +16,11 @@ spec:
         prometheus.io/path: /metrics
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
-        sidecar.istio.io/inject: "false"
+      initializers:
+        pending: []
       labels:
         app.kubernetes.io/name: sparkoperator
-        app.kubernetes.io/version: v1beta2-1.1.0-2.4.5
-        kustomize.component: spark-operator
+        app.kubernetes.io/version: v1beta2-1.0.0-2.4.4
     spec:
       containers:
       - args:
@@ -36,7 +35,7 @@ spec:
         - -metrics-port=10254
         - -metrics-endpoint=/metrics
         - -metrics-prefix=
-        image: gcr.io/spark-operator/spark-operator:v1beta2-1.1.0-2.4.5
+        image: gcr.io/spark-operator/spark-operator:v1beta2-1.0.0-2.4.4
         imagePullPolicy: IfNotPresent
         name: sparkoperator
         ports:

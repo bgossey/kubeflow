@@ -8,8 +8,7 @@ resources:
 - service.yaml
 configMapGenerator:
 - name: dex-authn-parameters
-  envs:
-  - params.env
+  env: params.env
 vars:
 - name: issuer
   objref:

@@ -19,8 +19,7 @@ generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
 - name: basic-auth-parameters
-  envs:
-  - params.env
+  env: params.env
 vars:
 - name: service-namespace
   objref:

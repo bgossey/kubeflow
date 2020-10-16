@@ -1,5 +1,3 @@
-# TODO(https://github.com/kubeflow/manifests/issues/1052) clean
-# up this kustomization.
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
@@ -29,8 +27,7 @@ images:
   newTag: 1.0.0
 configMapGenerator:
 - name: parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

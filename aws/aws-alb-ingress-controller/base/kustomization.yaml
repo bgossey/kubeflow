@@ -16,8 +16,7 @@ images:
   newTag: v1.1.5
 configMapGenerator:
 - name: alb-ingress-controller-parameters
-  envs:
-  - params.env
+  env: params.env
 vars:
 - name: CLUSTER_NAME
   objref:

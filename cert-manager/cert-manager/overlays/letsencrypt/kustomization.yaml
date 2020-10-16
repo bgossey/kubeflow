@@ -10,8 +10,7 @@ commonLabels:
 configMapGenerator:
 - name: cert-manager-parameters
   behavior: merge
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

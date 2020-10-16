@@ -6,12 +6,12 @@ spec:
   selector:
     istio: $(gatewaySelector)
   servers:
-    - port:
-        number: 80
-        name: http
-        protocol: HTTP
-      hosts:
-        - "*"
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -107,5 +107,4 @@ kind: ClusterRbacConfig
 metadata:
   name: default
 spec:
-  mode: "OFF"
-
+  mode: $(clusterRbacConfig)

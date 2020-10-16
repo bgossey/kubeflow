@@ -10,8 +10,7 @@ namespace: kubeflow
 nameprefix: application-controller-
 configMapGenerator:
 - name: parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 images:

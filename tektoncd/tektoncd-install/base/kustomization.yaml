@@ -10,53 +10,20 @@ resources:
 - service-account.yaml
 - service.yaml
 - deployment.yaml
-- role.yaml
-- role-binding.yaml
-- secret.yaml
-- webhook-configuration.yaml
 namespace: tekton-pipelines
 configMapGenerator:
 - name: tektoncd-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
-- name: tekton-registry
+- name: registry
   objref:
     kind: ConfigMap
     name: tektoncd-parameters
     apiVersion: v1
   fieldref:
-    fieldpath: data.tekton-registry
-- name: nop-registry
-  objref:
-    kind: ConfigMap
-    name: tektoncd-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.nop-registry
-- name: affinity-registry
-  objref:
-    kind: ConfigMap
-    name: tektoncd-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.affinity-registry
-- name: gsutil-registry
-  objref:
-    kind: ConfigMap
-    name: tektoncd-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.gsutil-registry
-- name: bash-registry
-  objref:
-    kind: ConfigMap
-    name: tektoncd-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.bash-registry
+    fieldpath: data.registry
 - name: entrypoint
   objref:
     kind: ConfigMap
@@ -141,13 +108,6 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.controller
-- name: affinity
-  objref:
-    kind: ConfigMap
-    name: tektoncd-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.affinity
 configurations:
 - params.yaml
 images:

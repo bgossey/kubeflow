@@ -8,8 +8,7 @@ resources:
 - persistent-volume-claim.yaml
 configMapGenerator:
 - name: pipeline-mysql-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

@@ -14,11 +14,10 @@ commonLabels:
 images:
 - name: seedjeffwan/istio-adapter
   newName: seedjeffwan/istio-adapter
-  newTag: "0.2"
+  newTag: "0.1"
 configMapGenerator:
   - name: aws-authzadaptor-parameters
-    envs:
-    - params.env
+    env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:

@@ -9,8 +9,7 @@ resources:
 - service.yaml
 configMapGenerator:
 - name: ui-parameters
-  envs:
-  - params.env
+  env: params.env
 images:
 - name: gcr.io/ml-pipeline/frontend
   newTag: 0.2.5
@@ -44,3 +43,5 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: metadata.name
+configurations:
+- params.yaml

@@ -11,8 +11,7 @@ namespace: istio-system
 
 configMapGenerator:
 - name: oidc-authservice-parameters
-  envs:
-  - params.env
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 
@@ -80,13 +79,6 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.namespace
-- name: gatewaySelector
-  objref:
-    kind: ConfigMap
-    name: oidc-authservice-parameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.gatewaySelector
 configurations:
 - params.yaml
 images:
