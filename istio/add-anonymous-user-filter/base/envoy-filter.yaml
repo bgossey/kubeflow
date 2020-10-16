@@ -16,3 +16,22 @@ spec:
         index: FIRST
       listenerMatch:
         listenerType: SIDECAR_INBOUND
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: add-user-everywhere
+  namespace: anonymous
+spec:
+  filters:
+    - filterConfig:
+        inlineCode: |
+          function envoy_on_request(request_handle)
+              request_handle:headers():replace("kubeflow-userid","anonymous@kubeflow.org")
+          end
+      filterName: envoy.lua
+      filterType: HTTP
+      insertPosition:
+        index: FIRST
+      listenerMatch:
+        listenerType: SIDECAR_INBOUND
