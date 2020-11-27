@@ -48,12 +48,10 @@ metadata:
     app: istio-ingressgateway
     istio: ingressgateway
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: istio-ingressgateway
     istio: ingressgateway
-  loadBalancerSourceRanges:
-    - 81.82.223.183/32
   ports:
     - name: status-port
       port: 15020
